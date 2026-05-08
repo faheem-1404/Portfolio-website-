@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&family=Manrope:wght@400;500;700&family=Caveat&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Anton", sans-serif;
+  --font-sans: "Inter", "Manrope", sans-serif;
+  --font-hand: "Caveat", cursive;
+  
+  --color-brand-yellow: #FDE047;
+  --color-brand-blue: #3B82F6;
+  --color-brand-slate: #475569;
+}
+
+@layer base {
+  body {
+    @apply bg-[#F9F9F9] text-zinc-900 antialiased selection:bg-brand-yellow/30;
+  }
+}
+
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: 1px currentColor;
+    color: transparent;
+  }
+  
+  .grain {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200%;
+    background: transparent url('http://assets.iceablethemes.com/img/noise-transparent.png') repeat 0 0;
+    background-repeat: repeat;
+    opacity: .05;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+}
