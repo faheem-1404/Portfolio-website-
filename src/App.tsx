@@ -434,7 +434,7 @@ export default function App() {
           </div>
 
           <h1 className="font-display text-[clamp(4rem,15vw,30rem)] leading-[0.75] tracking-tighter uppercase whitespace-nowrap -ml-[2vw] relative z-10">
-            FAHEEM ABDULLAH
+            FAHEEM ABDULLAH A
           </h1>
         </motion.div>
 
