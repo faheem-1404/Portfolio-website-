@@ -634,7 +634,7 @@ export default function App() {
             className="mb-20"
           >
             <h2 className="font-display text-5xl md:text-8xl uppercase tracking-tighter leading-[0.8] mb-12">
-              ABOUT ME,<br />
+              ABOUT ME<br />
               <span className="text-outline">STORY & VISION.</span>
             </h2>
           </motion.div>
