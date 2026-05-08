@@ -433,7 +433,7 @@ export default function App() {
             </div>
           </div>
 
-          <h1 className="font-display text-[clamp(4rem,15vw,30rem)] leading-[0.75] tracking-tighter uppercase whitespace-nowrap -ml-[2vw] relative z-10">
+          <h1 className="font-display text-[clamp(4rem,13vw,22rem)] leading-[0.75] tracking-tighter uppercase whitespace-nowrap -ml-[2vw] relative z-10">
             FAHEEM ABDULLAH A
           </h1>
         </motion.div>
@@ -634,8 +634,8 @@ export default function App() {
             className="mb-20"
           >
             <h2 className="font-display text-5xl md:text-8xl uppercase tracking-tighter leading-[0.8] mb-12">
-              I DON'T HAVE DARK SECRETS,<br />
-              <span className="text-outline">ONLY BRIGHT ONES.</span>
+              ABOUT ME,<br />
+              <span className="text-outline">STORY & VISION.</span>
             </h2>
           </motion.div>
 
