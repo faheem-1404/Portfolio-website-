@@ -345,6 +345,13 @@ export default function App() {
       details: "We are building AI-powered healthcare products designed to make everyday life more intelligent and accessible, starting with smart glasses. Zyphra Vision focuses on empowering individuals through smart wearables, IoT, and integrated software solutions to enhance global independence and safety.",
       role: "CEO & Founder"
     },
+    { 
+      year: "15th May 2026", 
+      title: "SJCIT National Level Hackathon — 3rd Place + ₹25K Cash Prize", 
+      color: "bg-red-500", 
+      icon: Trophy,
+      details: "🥉 3rd Prize – Secured 3rd place at the National-Level Hackathon held at SJCIT, Bangalore, Karnataka. Awarded ₹25,000 as cash prize."
+    },
   ];
 
   const techStack = [
@@ -552,66 +559,106 @@ export default function App() {
           </div>
 
           <div className="relative">
-            {/* Timeline Icons */}
-            <div className="flex justify-between items-start relative z-10 mb-12">
-              {milestones.map((ms, i) => (
-                <div key={i} className="flex flex-col items-center gap-4 group relative">
-                  {ms.title.includes("National") && (
-                    <motion.div 
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap"
+            {/* Timeline Icons - Row 1 */}
+            <div className="relative mb-12">
+              <div className="flex justify-between items-start relative z-10">
+                {milestones.slice(0, 5).map((ms, i) => (
+                  <div key={i} className="flex flex-col items-center group relative w-16 lg:w-24">
+                    {ms.title === "National Hackathon — Top 3 among 900 Teams + ₹25K Prize" && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap"
+                      >
+                        <span className="font-hand text-brand-blue text-sm rotate-[-5deg] block">Click ↓</span>
+                      </motion.div>
+                    )}
+                    <motion.div
+                      onMouseEnter={() => {
+                        if (!isLocked && ms.details) setSelectedMilestone(ms);
+                      }}
+                      onMouseLeave={() => {
+                        if (!isLocked) setSelectedMilestone(null);
+                      }}
+                      onClick={() => {
+                        if (ms.details) {
+                          setSelectedMilestone(ms);
+                          setIsLocked(true);
+                        }
+                      }}
+                      whileHover={{ scale: 1.2, rotate: 15 }}
+                      className={`w-16 h-16 lg:w-24 lg:h-24 rounded-full ${ms.color} border-4 border-white shadow-xl flex items-center justify-center flex-shrink-0 cursor-pointer transition-transform`}
                     >
-                      <span className="font-hand text-brand-blue text-sm rotate-[-5deg] block">Click ↓</span>
+                      <ms.icon className={`w-8 h-8 lg:w-10 lg:h-10 ${(ms.color.includes('zinc-900') || ms.color.includes('red-500')) ? 'text-white' : 'text-zinc-800'}`} />
                     </motion.div>
-                  )}
-                  <motion.div
-                    onMouseEnter={() => {
-                      if (!isLocked && ms.details) setSelectedMilestone(ms);
-                    }}
-                    onMouseLeave={() => {
-                      if (!isLocked) setSelectedMilestone(null);
-                    }}
-                    onClick={() => {
-                      if (ms.details) {
-                        setSelectedMilestone(ms);
-                        setIsLocked(true);
-                      }
-                    }}
-                    whileHover={{ scale: 1.2, rotate: 15 }}
-                    className={`w-16 h-16 md:w-24 md:h-24 rounded-full ${ms.color} border-4 border-white shadow-xl flex items-center justify-center flex-shrink-0 cursor-pointer transition-transform`}
-                  >
-                    <ms.icon className={`w-8 h-8 md:w-10 md:h-10 ${ms.color.includes('zinc-900') ? 'text-white' : 'text-zinc-800'}`} />
-                  </motion.div>
-                  <div className="text-center hidden md:block">
-                    <span className="font-hand text-3xl block text-zinc-400 rotate-[-5deg] mb-2">{ms.year}</span>
-                    <div className="max-w-[150px] flex flex-col items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="font-bold text-[10px] uppercase tracking-tighter">
-                        {ms.title}
+                    <div className="text-center hidden lg:block absolute top-[80px] lg:top-[112px] w-[180px] lg:w-[220px] left-1/2 -translate-x-1/2">
+                      <span className="font-hand text-xl lg:text-3xl block text-zinc-400 rotate-[-5deg] mb-2">{ms.year}</span>
+                      <div className="max-w-[120px] lg:max-w-[150px] flex flex-col items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity mx-auto">
+                        <div className="font-bold text-[10px] uppercase tracking-tighter">
+                          {ms.title}
+                        </div>
                       </div>
                     </div>
+                    {i === 4 && (
+                      <div className="absolute top-[180px] left-1/2 -translate-x-1/2 flex flex-col items-center group/red z-10 hidden lg:flex w-16 lg:w-24">
+                        <motion.div
+                          onMouseEnter={() => {
+                            if (!isLocked && milestones[5].details) setSelectedMilestone(milestones[5]);
+                          }}
+                          onMouseLeave={() => {
+                            if (!isLocked) setSelectedMilestone(null);
+                          }}
+                          onClick={() => {
+                            if (milestones[5].details) {
+                              setSelectedMilestone(milestones[5]);
+                              setIsLocked(true);
+                            }
+                          }}
+                          whileHover={{ scale: 1.2, rotate: 15 }}
+                          className={`w-16 h-16 lg:w-24 lg:h-24 rounded-full ${milestones[5].color} border-4 border-white shadow-xl flex items-center justify-center flex-shrink-0 cursor-pointer transition-transform`}
+                        >
+                          <Trophy className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
+                        </motion.div>
+                        <div className="text-center hidden lg:block absolute top-[80px] lg:top-[112px] w-[180px] lg:w-[220px] left-1/2 -translate-x-1/2">
+                          <span className="font-hand text-xl lg:text-3xl block text-zinc-400 rotate-[-5deg] mb-2">{milestones[5].year}</span>
+                          <div className="max-w-[120px] lg:max-w-[150px] flex flex-col items-center gap-2 opacity-0 group-hover/red:opacity-100 transition-opacity mx-auto">
+                            <div className="font-bold text-[10px] uppercase tracking-tighter">
+                              {milestones[5].title}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              {/* Squiggly Connecting Line that bends down to the red milestone */}
+              <svg 
+                className="absolute top-[8px] h-[220px] pointer-events-none z-0 hidden lg:block overflow-visible" 
+                style={{ left: '48px', right: '48px', width: 'calc(100% - 96px)' }}
+                viewBox="0 0 1000 220" 
+                preserveAspectRatio="none"
+              >
+                <motion.path
+                  initial={{ pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  transition={{ duration: 2.5, ease: "easeInOut" }}
+                  d="M0,40 Q125,0 250,40 T500,40 T750,40 T1000,40 Q970,85 1000,130 T1000,220"
+                  fill="none"
+                  stroke="#d1d1d1"
+                  strokeWidth="3"
+                  strokeDasharray="10 10"
+                />
+              </svg>
             </div>
 
-            {/* Squiggly Connecting Line */}
-            <svg className="absolute top-1/2 left-0 w-full h-32 -translate-y-1/2 pointer-events-none z-0" viewBox="0 0 1000 100" preserveAspectRatio="none">
-              <motion.path
-                initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                transition={{ duration: 2, ease: "easeInOut" }}
-                d="M0,50 Q125,0 250,50 T500,50 T750,50 T1000,50"
-                fill="none"
-                stroke="#d1d1d1"
-                strokeWidth="3"
-                strokeDasharray="10 10"
-              />
-            </svg>
+            {/* Spacer to reserve vertical height on desktop for the absolutely positioned red milestone */}
+            <div className="hidden lg:block h-[260px]" />
           </div>
 
           {/* Mobile Labels */}
-          <div className="md:hidden space-y-6 mt-12 bg-white p-6 rounded-2xl border border-zinc-200">
+          <div className="lg:hidden space-y-6 mt-12 bg-white p-6 rounded-2xl border border-zinc-200">
             {milestones.map((milestone, i) => (
               <div key={i} className="flex items-center gap-4">
                 <div className={`w-4 h-4 rounded-full ${milestone.color} border border-zinc-200`} />
@@ -830,7 +877,7 @@ export default function App() {
             >
               <div className="flex justify-between items-start mb-8">
                 <div className={`w-16 h-16 rounded-full ${selectedMilestone.color} flex items-center justify-center`}>
-                  <selectedMilestone.icon className="w-8 h-8 text-white" />
+                  <selectedMilestone.icon className={`w-8 h-8 ${selectedMilestone.color === 'bg-white' ? 'text-zinc-800' : 'text-white'}`} />
                 </div>
                 {selectedMilestone.role && (
                   <span className="bg-brand-yellow text-zinc-900 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border border-zinc-900 shadow-sm">
