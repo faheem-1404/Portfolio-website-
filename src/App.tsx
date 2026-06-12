@@ -411,7 +411,7 @@ export default function App() {
               <motion.a 
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                href="https://drive.google.com/file/d/10z-OtACg4DFbs5S12MZrbUjJcShR4YrV/view"
+                href="https://drive.google.com/uc?export=download&id=1CK_sKCRq-Znu5QNOy3FZyEmsAGBBV23V"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 border-2 border-zinc-200 text-zinc-900 px-8 py-4 rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-zinc-50 transition-all cursor-pointer"
